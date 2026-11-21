@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Kodirjonov Dilshodbek, web programming student.">
+  <title>Kodirjonov Dilshodbek — Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f4ef;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --card: #ffffff;
+      --line: #e5e7eb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+
+    header {
+      background: var(--ink);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+    }
+    nav a {
+      display: block;
+      padding: 10px 18px;
+      color: #e5e7eb;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover, nav a:focus {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    main { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+    .label {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 16px; }
+    h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    p { margin-bottom: 12px; max-width: 62ch; }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-text { flex: 1 1 320px; }
+    .hero img {
+      width: 280px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    .id-badge {
+      display: inline-block;
+      margin: 8px 0 20px;
+      padding: 6px 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-right: 8px;
+    }
+    .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card p { margin-bottom: 0; color: var(--muted); }
+    .skills { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .skills li {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body id="top">
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">My Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <p class="label">Web Programming Student</p>
+        <h1>Hi, I'm Kodirjonov Dilshodbek.</h1>
+        <p>I am learning to build websites with HTML, CSS and Git. This is my portfolio for Week 10.</p>
+        <span class="id-badge">Student ID: 202637546</span>
+        <p>
+          <a class="btn" href="#projects">See my work</a>
+          <a class="btn secondary" href="#contact">Contact me</a>
+        </p>
+      </div>
+      <img
+        src="https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/ttsdxyjiwispgbqdsz63"
+        alt="Portrait of Kodirjonov Dilshodbek"
+        width="280"
+        height="350">
+    </section>
+
+    <section id="about">
+      <p class="label">About Me / 01</p>
+      <h2>A little about me.</h2>
+      <p>My name is Kodirjonov Dilshodbek. I am a student in the Web Programming course, and I am learning how to turn ideas into clean, working web pages.</p>
+      <p>Outside of coding, one of my hobbies is cooking. I like trying a new recipe each week, and I enjoy making something with my own hands, just like building a web page.</p>
+    </section>
+
+    <section id="projects">
+      <p class="label">My Projects / 02</p>
+      <h2>What I have built so far.</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Hobby Page</h3>
+          <p>A simple page about my favourite hobby, built with headings, paragraphs and text formatting.</p>
+        </article>
+        <article class="card">
+          <h3>Navigation Menu</h3>
+          <p>A horizontal navigation bar with hover effects, styled with CSS flexbox.</p>
+        </article>
+        <article class="card">
+          <h3>Image Page</h3>
+          <p>A page with an image that has descriptive alt text and fixed dimensions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="label">Skills / 03</p>
+      <h2>Tools I am learning.</h2>
+      <ul class="skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Responsive design</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <p class="label">Contact / 04</p>
+      <h2>Let's connect.</h2>
+      <p>You can see my code and other work on GitHub.</p>
+      <p>
+        <a class="btn" href="https://github.com/qodirjonovdilshodbek16-hub/web-programing" target="_blank" rel="noopener noreferrer">
+          My GitHub repository ↗
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Kodirjonov Dilshodbek · ID 202637546 · <a href="#top">Back to top ↑</a></p>
+  </footer>
+</body>
+</html>
