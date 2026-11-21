@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Favourite Hobby</title>
+</head>
+<body>
+  <h1>Cooking</h1>
+  <h2>Why I Love It</h2>
+  <p>Cooking helps me enjoy <strong>simple pleasures</strong> in everyday life. I love creating dishes with a little <em lang="fr">je ne sais quoi</em>.</p>
+  <h2>How to Start</h2>
+  <p>Pick an easy recipe and cook something new each week. Learn basic knife skills and experiment with spices and flavours.</p>
+</body>
+</html>
