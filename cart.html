@@ -46,6 +46,93 @@
 
   <script src="products.js"></script>
   <script src="main.js"></script>
-  <script src="cart.js"></script>
+  <script>
+/* Cart page: quantities, removal, totals, demo checkout */
+(function () {
+  var area = document.getElementById("cartArea");
+  var SHIPPING = 7;
+  var FREE_OVER = 100;
+
+  function render() {
+    var items = Store.items();
+
+    if (!items.length) {
+      area.innerHTML =
+        '<div class="empty" style="display:block">' +
+        '<p style="font-size:3rem">🛒</p>' +
+        "<h2>Your cart is empty</h2>" +
+        '<p>Add something from the shop and it will show up here.</p>' +
+        '<a class="btn" href="shop.html">Browse products</a></div>';
+      return;
+    }
+
+    var subtotal = 0;
+    var rows = items.map(function (it) {
+      var p = it.product;
+      subtotal += p.price * it.qty;
+      return '<div class="cart-item">' +
+        '<div class="pic" style="background:' + p.color + '" aria-hidden="true">' + p.icon + "</div>" +
+        "<div><h3 style=\"font-size:1.1rem\">" + p.name + "</h3>" +
+        '<span class="muted">' + Store.money(p.price) + " each</span><br>" +
+        '<div class="qty">' +
+        '<button type="button" data-dec="' + p.id + '" aria-label="Decrease quantity of ' + p.name + '">−</button>' +
+        "<strong>" + it.qty + "</strong>" +
+        '<button type="button" data-inc="' + p.id + '" aria-label="Increase quantity of ' + p.name + '">+</button>' +
+        '<button class="remove" type="button" data-del="' + p.id + '">Remove</button>' +
+        "</div></div>" +
+        '<div class="price">' + Store.money(p.price * it.qty) + "</div></div>";
+    }).join("");
+
+    var shipping = subtotal >= FREE_OVER ? 0 : SHIPPING;
+    var total = subtotal + shipping;
+    var note = shipping === 0
+      ? "You get free shipping."
+      : "Add " + Store.money(FREE_OVER - subtotal) + " more for free shipping.";
+
+    area.innerHTML =
+      '<div class="cart-layout"><div>' + rows +
+      '<button class="btn ghost" type="button" id="clearBtn">Clear cart</button></div>' +
+      '<aside class="summary" aria-label="Order summary"><h3>Order summary</h3>' +
+      '<div class="row"><span>Subtotal</span><span>' + Store.money(subtotal) + "</span></div>" +
+      '<div class="row"><span>Shipping</span><span>' + (shipping ? Store.money(shipping) : "Free") + "</span></div>" +
+      '<p class="muted" style="font-size:.88rem">' + note + "</p>" +
+      '<div class="row total"><span>Total</span><span>' + Store.money(total) + "</span></div>" +
+      '<button class="btn" type="button" id="checkoutBtn" style="width:100%;margin-top:10px">Checkout</button>' +
+      '<p class="muted" style="font-size:.8rem;margin-top:10px">This is a demo store. No payment is taken.</p>' +
+      "</aside></div>";
+  }
+
+  area.addEventListener("click", function (e) {
+    var t = e.target;
+    var id;
+    if ((id = t.getAttribute("data-inc"))) {
+      var cur = Store.items().filter(function (i) { return i.product.id === Number(id); })[0];
+      if (cur && cur.qty >= cur.product.stock) Store.toast("Only " + cur.product.stock + " in stock");
+      Store.setQty(id, cur ? cur.qty + 1 : 1);
+      render();
+    } else if ((id = t.getAttribute("data-dec"))) {
+      var c2 = Store.items().filter(function (i) { return i.product.id === Number(id); })[0];
+      Store.setQty(id, c2 ? c2.qty - 1 : 0);
+      render();
+    } else if ((id = t.getAttribute("data-del"))) {
+      Store.remove(id);
+      render();
+    } else if (t.id === "clearBtn") {
+      Store.clear();
+      render();
+    } else if (t.id === "checkoutBtn") {
+      Store.clear();
+      area.innerHTML =
+        '<div class="empty" style="display:block">' +
+        '<p style="font-size:3rem">✅</p><h2>Thank you for your order!</h2>' +
+        "<p>This is a demo store, so nothing was charged or shipped.</p>" +
+        '<a class="btn" href="shop.html">Continue shopping</a></div>';
+    }
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
+
