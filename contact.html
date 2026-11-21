@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact the TechNest team.">
+  <title>Contact — TechNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="bar">
+      <a class="logo" href="index.html">Tech<span>Nest</span></a>
+      <nav id="mainNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="tools-right">
+        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
+        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="block">
+      <div class="wrap two">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h1 style="font-size:clamp(2rem,5vw,3rem)">Questions? Send us a message.</h1>
+          <p class="muted" style="margin-top:16px">Tell us what you think about the project or ask about a product. This form is a demo: it checks your input but does not send an email.</p>
+          <div class="feature" style="margin-top:20px">
+            <h3>Find our code</h3>
+            <p class="muted">The full source of this website is on GitHub.</p>
+            <a href="https://github.com/qodirjonovdilshodbek16-hub/web-programing" target="_blank" rel="noopener noreferrer">github.com/qodirjonovdilshodbek16-hub/web-programing ↗</a>
+          </div>
+        </div>
+
+        <div class="feature">
+          <form id="contactForm" novalidate>
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+              <div class="field-error" id="nameErr" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <div class="field-error" id="emailErr" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic">
+                <option>General question</option>
+                <option>Product help</option>
+                <option>Feedback</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <div class="field-error" id="messageErr" aria-live="polite"></div>
+            </div>
+            <button class="btn" type="submit">Send message</button>
+            <div class="success" id="success" role="status">Thank you! Your message passed all checks. (Demo form: nothing was sent.)</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="main.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

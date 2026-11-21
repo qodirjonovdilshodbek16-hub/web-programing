@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TechNest is a demo online store for phones, laptops, audio and accessories.">
+  <title>TechNest — Smart tech, simple prices</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="bar">
+      <a class="logo" href="index.html">Tech<span>Nest</span></a>
+      <nav id="mainNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="tools-right">
+        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
+        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">New season · Demo store</p>
+          <h1>Smart tech, <span class="hl">simple prices.</span></h1>
+          <p class="lead">Phones, laptops, audio and accessories in one place. Search, filter, add to cart and check out in a few clicks.</p>
+          <div class="actions">
+            <a class="btn" href="shop.html">Shop now →</a>
+            <a class="btn ghost" href="#featured">See top picks</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">🚀<small>TechNest · 2026</small></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <div class="stats reveal">
+          <div class="stat"><b>12</b>Products</div>
+          <div class="stat"><b>5</b>Categories</div>
+          <div class="stat"><b>4.4★</b>Average rating</div>
+          <div class="stat"><b>24/7</b>Online shop</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <p class="eyebrow">Browse</p>
+        <h2>Shop by category</h2>
+        <div class="cat-row reveal">
+          <a class="cat" href="shop.html?cat=phones"><span class="ico">📱</span>Phones</a>
+          <a class="cat" href="shop.html?cat=laptops"><span class="ico">💻</span>Laptops</a>
+          <a class="cat" href="shop.html?cat=audio"><span class="ico">🎧</span>Audio</a>
+          <a class="cat" href="shop.html?cat=wearables"><span class="ico">⌚</span>Wearables</a>
+          <a class="cat" href="shop.html?cat=accessories"><span class="ico">🔋</span>Accessories</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="featured">
+      <div class="wrap">
+        <p class="eyebrow">Top picks</p>
+        <h2>Best-rated products</h2>
+        <div class="grid" id="featuredGrid"></div>
+        <div class="actions"><a class="btn ghost" href="shop.html">View all products</a></div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <p class="eyebrow">Why TechNest</p>
+        <h2>Shopping that feels easy.</h2>
+        <div class="features">
+          <div class="feature reveal"><div class="ico">⚡</div><h3>Fast search</h3><p class="muted">Find any product by name and sort by price or rating.</p></div>
+          <div class="feature reveal"><div class="ico">🛒</div><h3>Smart cart</h3><p class="muted">Your cart is saved in the browser, so it stays when you come back.</p></div>
+          <div class="feature reveal"><div class="ico">🌙</div><h3>Dark mode</h3><p class="muted">Switch themes with one click. We remember your choice.</p></div>
+          <div class="feature reveal"><div class="ico">📱</div><h3>Works everywhere</h3><p class="muted">Responsive design for phones, tablets and desktops.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap" style="text-align:center">
+        <h2>Ready to find your next gadget?</h2>
+        <p class="muted">Browse the full catalog or send us a question.</p>
+        <div class="actions" style="justify-content:center">
+          <a class="btn" href="shop.html">Go to shop</a>
+          <a class="btn ghost" href="contact.html">Contact us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="main.js"></script>
+  <script>
+    (function () {
+      var top = Store.products.slice().sort(function (a, b) { return b.rating - a.rating; }).slice(0, 4);
+      document.getElementById("featuredGrid").innerHTML = top.map(Store.card).join("");
+      /* main.js already ran, so reveal the freshly added cards ourselves */
+      document.querySelectorAll("#featuredGrid .reveal").forEach(function (el) {
+        setTimeout(function () { el.classList.add("show"); }, 50);
+      });
+    })();
+  </script>
+</body>
+</html>

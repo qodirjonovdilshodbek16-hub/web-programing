@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review the items in your TechNest cart.">
+  <title>Cart — TechNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="bar">
+      <a class="logo" href="index.html">Tech<span>Nest</span></a>
+      <nav id="mainNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="tools-right">
+        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" aria-current="page" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
+        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="block">
+      <div class="wrap">
+        <p class="eyebrow">Your order</p>
+        <h1 style="font-size:clamp(2rem,5vw,3rem)">Shopping cart</h1>
+
+        <div id="cartArea"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="main.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

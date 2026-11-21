@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About the TechNest project and the team behind it.">
+  <title>About — TechNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="bar">
+      <a class="logo" href="index.html">Tech<span>Nest</span></a>
+      <nav id="mainNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="tools-right">
+        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
+        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="block">
+      <div class="wrap two">
+        <div>
+          <p class="eyebrow">About the project</p>
+          <h1 style="font-size:clamp(2rem,5vw,3rem)">A small store with big ideas.</h1>
+          <p class="muted" style="margin-top:16px">TechNest is our final project for the Web Programming course. It is a demo online store where you can browse gadgets, search and filter products, build a cart and send a message through the contact form.</p>
+          <p class="muted">The goal was to practise clean HTML structure, responsive CSS and plain JavaScript without any frameworks, and to publish the result with Git and GitHub Pages.</p>
+        </div>
+        <div class="feature reveal">
+          <h3>What's inside</h3>
+          <ul style="padding-left:20px;margin-top:10px">
+            <li>Five linked pages with a shared menu</li>
+            <li>Product search, category filter and sorting</li>
+            <li>Cart saved in the browser (localStorage)</li>
+            <li>Contact form with live validation</li>
+            <li>Light and dark theme</li>
+            <li>Responsive layout and keyboard-friendly controls</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <p class="eyebrow">The team</p>
+        <h2>People behind TechNest</h2>
+        <div class="team">
+          <article class="member reveal">
+            <div class="avatar" aria-hidden="true">KD</div>
+            <h3>Kodirjonov Dilshodbek</h3>
+            <p class="muted">Team member · ID 202637546</p>
+          </article>
+          <!-- TODO: replace with your teammates' real names (one block per member) -->
+          <article class="member reveal">
+            <div class="avatar" aria-hidden="true">T2</div>
+            <h3>Teammate name</h3>
+            <p class="muted">Team member</p>
+          </article>
+          <article class="member reveal">
+            <div class="avatar" aria-hidden="true">T3</div>
+            <h3>Teammate name</h3>
+            <p class="muted">Team member</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <p class="eyebrow">How we built it</p>
+        <h2>Project timeline</h2>
+        <div class="timeline">
+          <div><h3>Plan</h3><p class="muted">Chose the topic, listed pages and features.</p></div>
+          <div><h3>Build</h3><p class="muted">Wrote the HTML structure, CSS styles and JavaScript features.</p></div>
+          <div><h3>Test</h3><p class="muted">Checked links, forms and the cart on phone and desktop sizes.</p></div>
+          <div><h3>Publish</h3><p class="muted">Uploaded the code to GitHub and enabled GitHub Pages.</p></div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://github.com/qodirjonovdilshodbek16-hub/web-programing" target="_blank" rel="noopener noreferrer">View code on GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
