@@ -32,15 +32,18 @@
 
     /* Header */
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(245, 244, 239, 0.92);
-      backdrop-filter: blur(8px);
+      position: static;
+      background: var(--bg);
       border-bottom: 1px solid var(--line);
     }
     .bar {
       max-width: 1040px; margin: 0 auto; padding: 14px 24px;
       display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap;
+      gap: 12px; flex-wrap: nowrap;
+    }
+    .pill { white-space: nowrap; }
+    @media (max-width: 760px) {
+      .bar { flex-wrap: wrap; justify-content: center; }
     }
     .logo { font-weight: 700; font-size: 1.2rem; text-decoration: none; letter-spacing: 0.02em; }
     nav ul { list-style: none; display: flex; gap: 6px; flex-wrap: wrap; }
