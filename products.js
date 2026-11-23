@@ -106,7 +106,7 @@
         '<div class="rating" aria-label="Rating ' + p.rating + ' out of 5">' + window.Store.stars(p.rating) +
         "<span>(" + p.reviews + ")</span></div>" +
         "<p>" + p.desc + "</p>" +
-        '<div><span class="price">' + money(p.price) + "</span>" + old + "</div>" +
+        '<div><span class="price">' + money(p.price) + old + "</span></div>" +
         '<span class="stock' + (low ? " low" : "") + '">' + (low ? "Only " + p.stock + " left" : "In stock") + "</span>" +
         '<div class="card-actions"><button class="btn" type="button" data-add="' + p.id + '">Add to cart</button></div>' +
         "</div></article>";
