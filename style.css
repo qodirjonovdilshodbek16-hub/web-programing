@@ -216,14 +216,19 @@ body {
 
 /* Colorful hero */
 .hero {
-  background: linear-gradient(
-    120deg,
-    #312e81,
-    #6d28d9,
-    #0891b2
-  );
+
   background-size: 200% 200%;
   animation: gradientMove 10s ease infinite;
+}
+/* TechNest Bold Background */
+body {
+  background: linear-gradient(
+    135deg,
+    #FFFFFF,
+    #FFD600,
+    #14532D
+  ) !important;
+  color: #172554;
 }
 
 @keyframes gradientMove {
