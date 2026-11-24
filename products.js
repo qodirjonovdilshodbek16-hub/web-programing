@@ -488,7 +488,7 @@
     card: function (prod) {
       var dots = prod.colors.slice(0, 5).map(function (c) { return '<span style="background:' + c.h + '"></span>'; }).join("");
       var more = prod.colors.length > 5 ? "<small>+" + (prod.colors.length - 5) + "</small>" : "";
-      return '<article class="pcard">' +
+     return '<article class="pcard cat-' + prod.cat + '">' +
         '<a class="pthumb" href="product.html?id=' + prod.id + '" aria-label="View ' + esc(prod.name) + '" style="--tint:' + prod.colors[0].h + '">' +
         Store.art(prod, 0) + (prod.isNew ? '<span class="pbadge">New</span>' : "") + "</a>" +
         '<div class="pbody"><p class="pbrand">' + esc(prod.brand) + "</p>" +
