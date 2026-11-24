@@ -196,3 +196,84 @@ footer a:hover{color:var(--text);text-decoration:underline}
  .trust{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* ===== TechNest Modern Effects ===== */
+
+:root {
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+  --accent-orange: #f59e0b;
+}
+
+/* Smooth page appearance */
+body {
+  animation: pageFade 0.6s ease;
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Colorful hero */
+.hero {
+  background: linear-gradient(
+    120deg,
+    #312e81,
+    #6d28d9,
+    #0891b2
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Product cards */
+.pcard {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.pcard:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 30px rgba(99, 102, 241, .16);
+}
+
+/* Buttons */
+.btn {
+  transition: all .25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(139, 92, 246, .25);
+}
+
+/* Navigation */
+nav.main a {
+  transition: background .25s ease, color .25s ease;
+}
+
+nav.main a:hover {
+  background: rgba(139, 92, 246, .13);
+  color: var(--accent-purple);
+}
+
+/* Category cards */
+.cat {
+  transition: all .3s ease;
+}
+
+.cat:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, .13);
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  body, .hero {
+    animation: none !important;
+  }
+}
