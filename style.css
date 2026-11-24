@@ -277,3 +277,10 @@ nav.main a:hover {
     animation: none !important;
   }
 }
+.pcard.cat-phones { background: #DBEAFE; }
+.pcard.cat-laptops { background: #D1FAE5; }
+.pcard.cat-tablets { background: #FCE7F3; }
+.pcard.cat-audio { background: #FEF3C7; }
+.pcard.cat-wearables { background: #EDE9FE; }
+.pcard.cat-accessories { background: #FFEDD5; }
+.pcard.cat-gaming { background: #CFFAFE; }
