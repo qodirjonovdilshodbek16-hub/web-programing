@@ -1,104 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="About the TechNest project and the team behind it.">
-  <title>About — TechNest</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — TechNest</title>
+<meta name="description" content="About TechNest and the project.">
+<script>try{var t=localStorage.getItem("technest-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar">Demo store for a university project · Free standard shipping over $100 · Try code STUDENT10</div>
+<header class="site"><div class="wrap hrow">
+<a class="logo" href="index.html"><i></i>TechNest</a>
+<nav class="main" id="mainNav" aria-label="Main"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html" class="on" aria-current="page">About</a><a href="contact.html">Contact</a></nav>
+<form class="search" action="shop.html" role="search"><input type="search" name="q" placeholder="Search products" aria-label="Search products"><button type="submit">Search</button></form>
+<div class="icons">
+<button class="ibtn" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+<a class="ibtn" href="cart.html" aria-label="Cart">Cart<span id="cartCount"></span></a>
+<button class="ibtn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">☰</button>
+</div></div></header>
+<main id="main">
 
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">Tech<span>Nest</span></a>
-      <nav id="mainNav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html" aria-current="page">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="tools-right">
-        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
-        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
-        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
-      </div>
-    </div>
-  </header>
+<div class="wrap"><section class="block"><h1>About TechNest</h1>
+<p style="max-width:720px;color:var(--muted)">TechNest is a demo electronics store built for the Web Programming final project. It is a multi-page website made with plain HTML, CSS and JavaScript — no frameworks — and hosted on GitHub Pages.</p></section>
+<section class="block" style="padding-top:0"><div class="cards3">
+<div class="panel"><h2>What it does</h2><p>Browse 55 products, filter and sort, pick colors, add to cart, apply promo codes and complete a demo checkout.</p></div>
+<div class="panel"><h2>How it's built</h2><p>Semantic HTML, responsive CSS with light and dark themes, and vanilla JavaScript. The cart is saved in your browser's localStorage.</p></div>
+<div class="panel"><h2>Honest by design</h2><p>No fake reviews, ratings or sales. Prices are approximate list prices and images are original illustrations.</p></div></div></section>
+<section class="block" id="faq" style="padding-top:0"><h2>FAQ</h2>
+<details><summary>Can I really buy something?</summary><p>No. TechNest is a student project; no payments are processed and nothing ships.</p></details>
+<details><summary>Are the prices accurate?</summary><p>They are approximate US list prices for base models and can differ from current retail prices.</p></details>
+<details><summary>Where is my cart stored?</summary><p>Only in your browser (localStorage). Clearing site data empties it.</p></details>
+<details><summary>Which promo codes work?</summary><p>STUDENT10 gives 10% off and FREESHIP gives free standard shipping.</p></details></section>
+<section class="block" style="padding-top:0"><div class="panel"><h2>Team</h2><p><b>Kodirjonov Dilshodbek</b> — ID 202637546<br>Team name and teammates: <i>add here</i></p></div></section></div>
 
-  <main id="main">
-    <section class="block">
-      <div class="wrap two">
-        <div>
-          <p class="eyebrow">About the project</p>
-          <h1 style="font-size:clamp(2rem,5vw,3rem)">A small store with big ideas.</h1>
-          <p class="muted" style="margin-top:16px">TechNest is our final project for the Web Programming course. It is a demo online store where you can browse gadgets, search and filter products, build a cart and send a message through the contact form.</p>
-          <p class="muted">The goal was to practise clean HTML structure, responsive CSS and plain JavaScript without any frameworks, and to publish the result with Git and GitHub Pages.</p>
-        </div>
-        <div class="feature reveal">
-          <h3>What's inside</h3>
-          <ul style="padding-left:20px;margin-top:10px">
-            <li>Five linked pages with a shared menu</li>
-            <li>Product search, category filter and sorting</li>
-            <li>Cart saved in the browser (localStorage)</li>
-            <li>Contact form with live validation</li>
-            <li>Light and dark theme</li>
-            <li>Responsive layout and keyboard-friendly controls</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="block alt">
-      <div class="wrap">
-        <p class="eyebrow">The team</p>
-        <h2>People behind TechNest</h2>
-        <div class="team">
-          <article class="member reveal">
-            <div class="avatar" aria-hidden="true">KD</div>
-            <h3>Kodirjonov Dilshodbek</h3>
-            <p class="muted">Team member · ID 202637546</p>
-          </article>
-          <!-- TODO: replace with your teammates' real names (one block per member) -->
-          <article class="member reveal">
-            <div class="avatar" aria-hidden="true">T2</div>
-            <h3>Teammate name</h3>
-            <p class="muted">Team member</p>
-          </article>
-          <article class="member reveal">
-            <div class="avatar" aria-hidden="true">T3</div>
-            <h3>Teammate name</h3>
-            <p class="muted">Team member</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="block">
-      <div class="wrap">
-        <p class="eyebrow">How we built it</p>
-        <h2>Project timeline</h2>
-        <div class="timeline">
-          <div><h3>Plan</h3><p class="muted">Chose the topic, listed pages and features.</p></div>
-          <div><h3>Build</h3><p class="muted">Wrote the HTML structure, CSS styles and JavaScript features.</p></div>
-          <div><h3>Test</h3><p class="muted">Checked links, forms and the cart on phone and desktop sizes.</p></div>
-          <div><h3>Publish</h3><p class="muted">Uploaded the code to GitHub and enabled GitHub Pages.</p></div>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://github.com/qodirjonovdilshodbek16-hub/web-programing" target="_blank" rel="noopener noreferrer">View code on GitHub ↗</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
-  </footer>
-
-  <script src="products.js"></script>
-  <script src="main.js"></script>
+</main>
+<section class="block"><div class="wrap"><div class="news"><div><h2 style="margin:0 0 6px">Get product news</h2><p style="margin:0">Demo newsletter form — nothing is stored.</p></div>
+<div><form id="newsForm" novalidate><input type="email" placeholder="you@example.com" aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form><p class="err" id="newsMsg" role="status"></p></div></div></div></section>
+<footer class="site"><div class="wrap"><div class="fgrid">
+<div><a class="logo" href="index.html"><i></i>TechNest</a><p style="color:var(--muted)">A demo online store built for the Web Programming final project.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html?cat=phones">Phones</a></li><li><a href="shop.html?cat=laptops">Laptops</a></li><li><a href="shop.html?cat=audio">Audio</a></li><li><a href="shop.html?cat=gaming">Gaming</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html#faq">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div><h4>Student</h4><ul><li>Kodirjonov Dilshodbek</li><li>ID 202637546</li><li><a href="https://github.com/qodirjonovdilshodbek16-hub/web-programing">GitHub repo</a></li></ul></div>
+</div><p class="legal">TechNest is a student demo. No real orders, payments or shipping. Prices are approximate US list prices and may differ from current retail. Product names and trademarks belong to their owners; product images are original illustrations, not official photos.</p></div></footer>
+<script src="art.js"></script>
+<script src="products.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

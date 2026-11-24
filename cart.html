@@ -1,138 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Review the items in your TechNest cart.">
-  <title>Cart — TechNest</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cart — TechNest</title>
+<meta name="description" content="Your shopping cart.">
+<script>try{var t=localStorage.getItem("technest-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar">Demo store for a university project · Free standard shipping over $100 · Try code STUDENT10</div>
+<header class="site"><div class="wrap hrow">
+<a class="logo" href="index.html"><i></i>TechNest</a>
+<nav class="main" id="mainNav" aria-label="Main"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<form class="search" action="shop.html" role="search"><input type="search" name="q" placeholder="Search products" aria-label="Search products"><button type="submit">Search</button></form>
+<div class="icons">
+<button class="ibtn" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+<a class="ibtn" href="cart.html" aria-label="Cart">Cart<span id="cartCount"></span></a>
+<button class="ibtn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">☰</button>
+</div></div></header>
+<main id="main">
 
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">Tech<span>Nest</span></a>
-      <nav id="mainNav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="tools-right">
-        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" aria-current="page" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
-        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
-        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
-      </div>
-    </div>
-  </header>
+<div class="wrap"><h1 style="margin:28px 0 0">Shopping cart</h1><div class="two"><div id="cartList"></div>
+<aside class="panel" id="summary"><h2>Order summary</h2>
+<form class="promo" id="promoForm"><input type="text" id="promoIn" placeholder="Promo code" aria-label="Promo code"><button class="btn small" type="submit">Apply</button></form>
+<div id="promoMsg" role="status"></div><p id="promoState" style="color:var(--ok);font-weight:700;margin:0"></p>
+<div class="sum"><div><span>Subtotal</span><span id="sub"></span></div><div><span>Discount</span><span id="disc"></span></div><div><span>Shipping</span><span id="ship"></span></div><div class="tot"><span>Total</span><span id="tot"></span></div></div>
+<p id="shipHint" style="color:var(--muted);font-size:.88rem"></p>
+<a class="btn" style="display:block;text-align:center" href="checkout.html">Checkout</a>
+<p class="note" style="margin-top:12px">Codes to try: STUDENT10, FREESHIP</p></aside></div></div>
 
-  <main id="main">
-    <section class="block">
-      <div class="wrap">
-        <p class="eyebrow">Your order</p>
-        <h1 style="font-size:clamp(2rem,5vw,3rem)">Shopping cart</h1>
+</main>
 
-        <div id="cartArea"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
-  </footer>
-
-  <script src="products.js"></script>
-  <script src="main.js"></script>
-  <script>
-/* Cart page: quantities, removal, totals, demo checkout */
-(function () {
-  var area = document.getElementById("cartArea");
-  var SHIPPING = 7;
-  var FREE_OVER = 100;
-
-  function render() {
-    var items = Store.items();
-
-    if (!items.length) {
-      area.innerHTML =
-        '<div class="empty" style="display:block">' +
-        '<p style="font-size:3rem">🛒</p>' +
-        "<h2>Your cart is empty</h2>" +
-        '<p>Add something from the shop and it will show up here.</p>' +
-        '<a class="btn" href="shop.html">Browse products</a></div>';
-      return;
-    }
-
-    var subtotal = 0;
-    var rows = items.map(function (it) {
-      var p = it.product;
-      subtotal += p.price * it.qty;
-      return '<div class="cart-item">' +
-        '<div class="pic" style="background:' + p.color + '" aria-hidden="true">' + p.icon + "</div>" +
-        "<div><h3 style=\"font-size:1.1rem\">" + p.name + "</h3>" +
-        '<span class="muted">' + Store.money(p.price) + " each</span><br>" +
-        '<div class="qty">' +
-        '<button type="button" data-dec="' + p.id + '" aria-label="Decrease quantity of ' + p.name + '">−</button>' +
-        "<strong>" + it.qty + "</strong>" +
-        '<button type="button" data-inc="' + p.id + '" aria-label="Increase quantity of ' + p.name + '">+</button>' +
-        '<button class="remove" type="button" data-del="' + p.id + '">Remove</button>' +
-        "</div></div>" +
-        '<div class="price">' + Store.money(p.price * it.qty) + "</div></div>";
-    }).join("");
-
-    var shipping = subtotal >= FREE_OVER ? 0 : SHIPPING;
-    var total = subtotal + shipping;
-    var note = shipping === 0
-      ? "You get free shipping."
-      : "Add " + Store.money(FREE_OVER - subtotal) + " more for free shipping.";
-
-    area.innerHTML =
-      '<div class="cart-layout"><div>' + rows +
-      '<button class="btn ghost" type="button" id="clearBtn">Clear cart</button></div>' +
-      '<aside class="summary" aria-label="Order summary"><h3>Order summary</h3>' +
-      '<div class="row"><span>Subtotal</span><span>' + Store.money(subtotal) + "</span></div>" +
-      '<div class="row"><span>Shipping</span><span>' + (shipping ? Store.money(shipping) : "Free") + "</span></div>" +
-      '<p class="muted" style="font-size:.88rem">' + note + "</p>" +
-      '<div class="row total"><span>Total</span><span>' + Store.money(total) + "</span></div>" +
-      '<button class="btn" type="button" id="checkoutBtn" style="width:100%;margin-top:10px">Checkout</button>' +
-      '<p class="muted" style="font-size:.8rem;margin-top:10px">This is a demo store. No payment is taken.</p>' +
-      "</aside></div>";
-  }
-
-  area.addEventListener("click", function (e) {
-    var t = e.target;
-    var id;
-    if ((id = t.getAttribute("data-inc"))) {
-      var cur = Store.items().filter(function (i) { return i.product.id === Number(id); })[0];
-      if (cur && cur.qty >= cur.product.stock) Store.toast("Only " + cur.product.stock + " in stock");
-      Store.setQty(id, cur ? cur.qty + 1 : 1);
-      render();
-    } else if ((id = t.getAttribute("data-dec"))) {
-      var c2 = Store.items().filter(function (i) { return i.product.id === Number(id); })[0];
-      Store.setQty(id, c2 ? c2.qty - 1 : 0);
-      render();
-    } else if ((id = t.getAttribute("data-del"))) {
-      Store.remove(id);
-      render();
-    } else if (t.id === "clearBtn") {
-      Store.clear();
-      render();
-    } else if (t.id === "checkoutBtn") {
-      Store.clear();
-      area.innerHTML =
-        '<div class="empty" style="display:block">' +
-        '<p style="font-size:3rem">✅</p><h2>Thank you for your order!</h2>' +
-        "<p>This is a demo store, so nothing was charged or shipped.</p>" +
-        '<a class="btn" href="shop.html">Continue shopping</a></div>';
-    }
-  });
-
-  render();
-})();
-</script>
+<footer class="site"><div class="wrap"><div class="fgrid">
+<div><a class="logo" href="index.html"><i></i>TechNest</a><p style="color:var(--muted)">A demo online store built for the Web Programming final project.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html?cat=phones">Phones</a></li><li><a href="shop.html?cat=laptops">Laptops</a></li><li><a href="shop.html?cat=audio">Audio</a></li><li><a href="shop.html?cat=gaming">Gaming</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html#faq">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div><h4>Student</h4><ul><li>Kodirjonov Dilshodbek</li><li>ID 202637546</li><li><a href="https://github.com/qodirjonovdilshodbek16-hub/web-programing">GitHub repo</a></li></ul></div>
+</div><p class="legal">TechNest is a student demo. No real orders, payments or shipping. Prices are approximate US list prices and may differ from current retail. Product names and trademarks belong to their owners; product images are original illustrations, not official photos.</p></div></footer>
+<script src="art.js"></script>
+<script src="products.js"></script>
+<script src="main.js"></script>
+<script src="cart.js"></script>
 </body>
 </html>
-

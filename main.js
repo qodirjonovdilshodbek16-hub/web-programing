@@ -1,61 +1,33 @@
-/* Dasturxon — shared script: theme toggle, mobile menu, reveal on scroll */
+/* Shared behaviour: theme, mobile menu, header search, newsletter. */
 (function () {
   var root = document.documentElement;
-
-  function safeGet(key) {
-    try { return localStorage.getItem(key); } catch (e) { return null; }
+  function getTheme() { try { return localStorage.getItem("technest-theme"); } catch (e) { return null; } }
+  function setTheme(t) {
+    root.setAttribute("data-theme", t);
+    try { localStorage.setItem("technest-theme", t); } catch (e) {}
+    var b = document.getElementById("themeBtn");
+    if (b) { b.textContent = t === "dark" ? "☀" : "☾"; b.setAttribute("aria-label", t === "dark" ? "Switch to light mode" : "Switch to dark mode"); }
   }
-  function safeSet(key, value) {
-    try { localStorage.setItem(key, value); } catch (e) { /* storage unavailable */ }
-  }
+  var saved = getTheme();
+  setTheme(saved || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
-  /* Theme */
-  var saved = safeGet("theme");
-  var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  var theme = saved || (prefersDark ? "dark" : "light");
-  root.setAttribute("data-theme", theme);
+  document.addEventListener("DOMContentLoaded", function () {
+    var tb = document.getElementById("themeBtn");
+    if (tb) tb.addEventListener("click", function () { setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark"); });
 
-  var themeBtn = document.getElementById("themeBtn");
-  function paintThemeBtn() {
-    if (!themeBtn) return;
-    var dark = root.getAttribute("data-theme") === "dark";
-    themeBtn.textContent = dark ? "☀️" : "🌙";
-    themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-  }
-  paintThemeBtn();
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      safeSet("theme", next);
-      paintThemeBtn();
-    });
-  }
-
-  /* Mobile menu */
-  var menuBtn = document.getElementById("menuBtn");
-  var nav = document.getElementById("mainNav");
-  if (menuBtn && nav) {
-    menuBtn.addEventListener("click", function () {
+    var mb = document.getElementById("menuBtn"), nav = document.getElementById("mainNav");
+    if (mb && nav) mb.addEventListener("click", function () {
       var open = nav.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", String(open));
+      mb.setAttribute("aria-expanded", open ? "true" : "false");
     });
-  }
 
-  /* Footer year */
-  var y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
-
-  /* Reveal on scroll */
-  var items = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window)) {
-    items.forEach(function (el) { el.classList.add("show"); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); }
+    var nf = document.getElementById("newsForm");
+    if (nf) nf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var inp = nf.querySelector("input"), out = document.getElementById("newsMsg");
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim());
+      out.textContent = ok ? "Thanks! (Demo only — nothing was sent or stored.)" : "Please enter a valid email address.";
+      if (ok) inp.value = "";
     });
-  }, { threshold: 0.12 });
-  items.forEach(function (el) { io.observe(el); });
+  });
 })();

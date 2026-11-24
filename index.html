@@ -1,124 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="TechNest is a demo online store for phones, laptops, audio and accessories.">
-  <title>TechNest — Smart tech, simple prices</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TechNest — Phones, laptops, audio and more</title>
+<meta name="description" content="Demo online electronics store with 55 products.">
+<script>try{var t=localStorage.getItem("technest-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar">Demo store for a university project · Free standard shipping over $100 · Try code STUDENT10</div>
+<header class="site"><div class="wrap hrow">
+<a class="logo" href="index.html"><i></i>TechNest</a>
+<nav class="main" id="mainNav" aria-label="Main"><a href="index.html" class="on" aria-current="page">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<form class="search" action="shop.html" role="search"><input type="search" name="q" placeholder="Search products" aria-label="Search products"><button type="submit">Search</button></form>
+<div class="icons">
+<button class="ibtn" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+<a class="ibtn" href="cart.html" aria-label="Cart">Cart<span id="cartCount"></span></a>
+<button class="ibtn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">☰</button>
+</div></div></header>
+<main id="main">
 
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">Tech<span>Nest</span></a>
-      <nav id="mainNav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="tools-right">
-        <a class="icon-btn cart-link" href="cart.html" aria-label="Open cart" style="display:grid;place-items:center;text-decoration:none">🛒<span id="cartCount" class="cart-count">0</span></a>
-        <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch to dark mode">🌙</button>
-        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">☰</button>
-      </div>
-    </div>
-  </header>
+<section class="hero"><div class="wrap"><div>
+<p class="eyebrow">Demo store · <span id="prodCount">55</span> products</p>
+<h1>Tech you'll actually want to own.</h1>
+<p>Phones, laptops, tablets, audio, wearables and gaming from brands you know — with clear specs, colors and simple prices.</p>
+<p><a class="btn" href="shop.html">Shop all products</a> <a class="btn ghost" href="shop.html?cat=phones">Browse phones</a></p></div>
+<div class="hero-art" id="heroArt"></div></div></section>
+<div class="wrap"><div class="trust"><div><b>Free shipping</b>On orders over $100</div><div><b>Student code</b>STUDENT10 for 10% off</div><div><b>Easy returns</b>Demo policy: 30 days</div><div><b>Secure demo</b>No card details asked</div></div></div>
+<section class="block"><div class="wrap"><div class="shead"><div><h2>Shop by category</h2></div></div><div class="cats" id="catTiles"></div></div></section>
+<section class="block"><div class="wrap"><div class="shead"><div><h2>New arrivals</h2><p>The latest models in the catalogue.</p></div><a class="btn ghost small" href="shop.html">View all</a></div><div class="grid" id="newGrid"></div></div></section>
+<section class="block"><div class="wrap"><div class="shead"><div><h2>Audio picks</h2></div><a class="btn ghost small" href="shop.html?cat=audio">All audio</a></div><div class="grid" id="audioGrid"></div></div></section>
+<section class="block"><div class="wrap"><div class="shead"><div><h2>Gaming</h2></div><a class="btn ghost small" href="shop.html?cat=gaming">All gaming</a></div><div class="grid" id="gamingGrid"></div></div></section>
 
-  <main id="main">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">New season · Demo store</p>
-          <h1>Smart tech, <span class="hl">simple prices.</span></h1>
-          <p class="lead">Phones, laptops, audio and accessories in one place. Search, filter, add to cart and check out in a few clicks.</p>
-          <div class="actions">
-            <a class="btn" href="shop.html">Shop now →</a>
-            <a class="btn ghost" href="#featured">See top picks</a>
-          </div>
-        </div>
-        <div class="hero-art" aria-hidden="true">🚀<small>TechNest · 2026</small></div>
-      </div>
-    </section>
-
-    <section class="block">
-      <div class="wrap">
-        <div class="stats reveal">
-          <div class="stat"><b>12</b>Products</div>
-          <div class="stat"><b>5</b>Categories</div>
-          <div class="stat"><b>4.4★</b>Average rating</div>
-          <div class="stat"><b>24/7</b>Online shop</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block alt">
-      <div class="wrap">
-        <p class="eyebrow">Browse</p>
-        <h2>Shop by category</h2>
-        <div class="cat-row reveal">
-          <a class="cat" href="shop.html?cat=phones"><span class="ico">📱</span>Phones</a>
-          <a class="cat" href="shop.html?cat=laptops"><span class="ico">💻</span>Laptops</a>
-          <a class="cat" href="shop.html?cat=audio"><span class="ico">🎧</span>Audio</a>
-          <a class="cat" href="shop.html?cat=wearables"><span class="ico">⌚</span>Wearables</a>
-          <a class="cat" href="shop.html?cat=accessories"><span class="ico">🔋</span>Accessories</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="featured">
-      <div class="wrap">
-        <p class="eyebrow">Top picks</p>
-        <h2>Best-rated products</h2>
-        <div class="grid" id="featuredGrid"></div>
-        <div class="actions"><a class="btn ghost" href="shop.html">View all products</a></div>
-      </div>
-    </section>
-
-    <section class="block alt">
-      <div class="wrap">
-        <p class="eyebrow">Why TechNest</p>
-        <h2>Shopping that feels easy.</h2>
-        <div class="features">
-          <div class="feature reveal"><div class="ico">⚡</div><h3>Fast search</h3><p class="muted">Find any product by name and sort by price or rating.</p></div>
-          <div class="feature reveal"><div class="ico">🛒</div><h3>Smart cart</h3><p class="muted">Your cart is saved in the browser, so it stays when you come back.</p></div>
-          <div class="feature reveal"><div class="ico">🌙</div><h3>Dark mode</h3><p class="muted">Switch themes with one click. We remember your choice.</p></div>
-          <div class="feature reveal"><div class="ico">📱</div><h3>Works everywhere</h3><p class="muted">Responsive design for phones, tablets and desktops.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block">
-      <div class="wrap" style="text-align:center">
-        <h2>Ready to find your next gadget?</h2>
-        <p class="muted">Browse the full catalog or send us a question.</p>
-        <div class="actions" style="justify-content:center">
-          <a class="btn" href="shop.html">Go to shop</a>
-          <a class="btn ghost" href="contact.html">Contact us</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <span id="year">2026</span> TechNest · A demo store made for a Web Programming course. No real purchases are made.</p>
-  </footer>
-
-  <script src="products.js"></script>
-  <script src="main.js"></script>
-  <script>
-    (function () {
-      var top = Store.products.slice().sort(function (a, b) { return b.rating - a.rating; }).slice(0, 4);
-      document.getElementById("featuredGrid").innerHTML = top.map(Store.card).join("");
-      /* main.js already ran, so reveal the freshly added cards ourselves */
-      document.querySelectorAll("#featuredGrid .reveal").forEach(function (el) {
-        setTimeout(function () { el.classList.add("show"); }, 50);
-      });
-    })();
-  </script>
+</main>
+<section class="block"><div class="wrap"><div class="news"><div><h2 style="margin:0 0 6px">Get product news</h2><p style="margin:0">Demo newsletter form — nothing is stored.</p></div>
+<div><form id="newsForm" novalidate><input type="email" placeholder="you@example.com" aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form><p class="err" id="newsMsg" role="status"></p></div></div></div></section>
+<footer class="site"><div class="wrap"><div class="fgrid">
+<div><a class="logo" href="index.html"><i></i>TechNest</a><p style="color:var(--muted)">A demo online store built for the Web Programming final project.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html?cat=phones">Phones</a></li><li><a href="shop.html?cat=laptops">Laptops</a></li><li><a href="shop.html?cat=audio">Audio</a></li><li><a href="shop.html?cat=gaming">Gaming</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html#faq">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div><h4>Student</h4><ul><li>Kodirjonov Dilshodbek</li><li>ID 202637546</li><li><a href="https://github.com/qodirjonovdilshodbek16-hub/web-programing">GitHub repo</a></li></ul></div>
+</div><p class="legal">TechNest is a student demo. No real orders, payments or shipping. Prices are approximate US list prices and may differ from current retail. Product names and trademarks belong to their owners; product images are original illustrations, not official photos.</p></div></footer>
+<script src="art.js"></script>
+<script src="products.js"></script>
+<script src="main.js"></script>
+<script src="home.js"></script>
 </body>
 </html>
